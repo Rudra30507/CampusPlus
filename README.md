@@ -16,7 +16,7 @@
 
 * **📹 Video Demo**: [Watch 3-Minute Walkthrough on Google Drive](https://drive.google.com/file/d/1uvbG1ZvWf8ZLqWZCOBwyK6-A2pUhZeTA/view?usp=drivesdk)
 * **💻 GitHub Repository**: [https://github.com/Rudra30507/CampusPlus](https://github.com/Rudra30507/CampusPlus)
-* **🌐 Live Web Application**: [https://campus-plus-five-gamma.vercel.app](https://campus-plus-five-gamma.vercel.app) *(or deployed Render service)*
+* **🌐 Live Web Application**: [https://campus-plus-rosy.vercel.app/](https://campus-plus-rosy.vercel.app/)
 
 ---
 
@@ -286,7 +286,7 @@ All sensitive keys are abstracted into environment variables. A template is main
 ### *Provide links or instructions for accessing the final application*
 
 ### 🌐 Live Deployment Links
-* **Live Web Application**: [https://campus-plus-five-gamma.vercel.app](https://campus-plus-five-gamma.vercel.app) *(or your deployed Render service URL)*
+* **Live Web Application**: [https://campus-plus-rosy.vercel.app/](https://campus-plus-rosy.vercel.app/)
 * **Video Walkthrough Demo**: [Google Drive Video Link](https://drive.google.com/file/d/1uvbG1ZvWf8ZLqWZCOBwyK6-A2pUhZeTA/view?usp=drivesdk)
 * **GitHub Repository**: [https://github.com/Rudra30507/CampusPlus](https://github.com/Rudra30507/CampusPlus)
 
