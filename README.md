@@ -1,22 +1,30 @@
 # 🎓 CampusPulse — Next-Gen College Event Management & Verification System
 
-[![React 19](https://img.shields.io/badge/Frontend-React_19_+_Vite-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![Node.js](https://img.shields.io/badge/Backend-Node.js_+_Express_MVC-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/Database-MongoDB_Atlas-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
-[![Security](https://img.shields.io/badge/Security-Council_Passkey_+_One--Time_QR-E53E3E?logo=auth0&logoColor=white)](https://jwt.io/)
-[![Design](https://img.shields.io/badge/UI/UX-Glassmorphism_Dark_Design-8B5CF6)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+<div align="center">
+
+[![React 19](https://img.shields.io/badge/Frontend-React_19_+_Vite-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Backend-Node.js_+_Express_MVC-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/Database-MongoDB_Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/atlas)
+[![Security](https://img.shields.io/badge/Security-Council_Passkey_+_One--Time_QR-E53E3E?style=for-the-badge&logo=auth0&logoColor=white)](https://jwt.io/)
+[![Design](https://img.shields.io/badge/UI/UX-Glassmorphism_Dark_Design-8B5CF6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+
+<br/>
 
 > **A production-ready, full-stack campus event management ecosystem built strictly on the MVC (Model-View-Controller) architecture pattern.**  
-> Features real-time seat locking, fraud-proof digital boarding passes with live camera QR gate verification, institutional roll/email validation, squad recruitment with captain approval, and council passkey authorization.
+> Features atomic seat concurrency locking, fraud-proof digital boarding passes with live camera QR gate verification, institutional roll/email validation, squad recruitment with captain approval, and council passkey authorization.
+
+</div>
 
 ---
 
 ## 🔗 Project Links
 
-* **📹 Video Demo**: [Watch 3-Minute Walkthrough on Google Drive](https://drive.google.com/file/d/1uvbG1ZvWf8ZLqWZCOBwyK6-A2pUhZeTA/view?usp=drivesdk)
-* **💻 GitHub Repository**: [https://github.com/Rudra30507/CampusPlus](https://github.com/Rudra30507/CampusPlus)
-* **🌐 Live Web Application**: [https://campus-plus-rosy.vercel.app/](https://campus-plus-rosy.vercel.app/)
+| Resource | Direct Access URL |
+|---|---|
+| 🌐 **Live Web Application** | **[https://campus-plus-rosy.vercel.app/](https://campus-plus-rosy.vercel.app/)** |
+| 📹 **Video Demo Walkthrough** | **[Watch 3-Minute Video on Google Drive](https://drive.google.com/file/d/1uvbG1ZvWf8ZLqWZCOBwyK6-A2pUhZeTA/view?usp=drivesdk)** |
+| 💻 **GitHub Repository** | **[https://github.com/Rudra30507/CampusPlus](https://github.com/Rudra30507/CampusPlus)** |
 
 ---
 
@@ -27,7 +35,7 @@
 4. [Solution](#-3-solution)
 5. [Key Features](#-4-key-features)
 6. [Tech Stack](#-5-tech-stack)
-7. [Architecture](#-6-architecture)
+7. [Architecture & System Flowcharts](#-6-architecture--system-flowcharts)
 8. [Local Setup](#-7-local-setup)
 9. [Environment Variables](#-8-environment-variables)
 10. [Deployment](#-9-deployment)
@@ -36,25 +44,36 @@
 
 ## 🏷️ Project Name
 ### **CampusPulse — College Event & Workshop Management Portal**
-*Next-generation campus event discovery, ticket verification, and student squad collaboration platform.*
+*The unified, fraud-proof campus event operating system connecting students, club leads, and institutional student councils.*
 
 ---
 
 ## 🛑 1. Problem Statement
 ### *What problem are we solving?*
 
-In universities and colleges, managing campus events, workshops, cultural galas, and sports tournaments currently relies on fragmented tools like **Google Forms, WhatsApp group announcements, and manual spreadsheets**. This leads to severe operational and security breakdowns:
+In universities and colleges, organizing events, workshops, hackathons, and sports tournaments currently relies on fragmented tools like **Google Forms, WhatsApp group announcements, and manual spreadsheets**. This leads to 5 major operational and security breakdowns:
+
+```mermaid
+flowchart TD
+    subgraph Traditional_Process["❌ Traditional Campus Event Chaos"]
+        A[Google Form Link Shared on WhatsApp] --> B[Unmonitored Submissions: 200+ responses for 30 seats]
+        B --> C[Manual Spreadsheet Filtering & Arbitrary Rejections]
+        C --> D[Confirmation Emails Forwarded to Friends]
+        D --> E[Screenshot / Proxy Entries at Venue Door]
+        E --> F[Disputes, Venue Overcrowding & Fraudulent Attendance]
+    end
+```
 
 1. **Uncontrolled Seat Overbooking**:
-   * Google Forms lack real-time capacity meters or concurrency locks. A 30-seat hands-on AI lab or a limited-seat hackathon often gets 200+ submissions, forcing organizers to manually reject students and causing disputes at the venue door.
-2. **Proxy Entries & Ticket Duplication**:
-   * Students frequently take screenshots of confirmation emails or forwarded WhatsApp passes to sneak unauthorized friends into exclusive events. Organizers have no way to verify if a pass has already been used.
+   * Google Forms lack real-time concurrency locks. A hands-on AI lab with only 30 computer seats easily gets 200+ submissions. Organizers must manually filter spreadsheets and turn away disappointed students at the door.
+2. **Proxy Entries & Ticket Screenshot Forgery**:
+   * Students take screenshots of confirmation emails or WhatsApp passes and forward them to unauthorized friends. Gate volunteers have no mechanism to verify authenticity or whether a pass was already used.
 3. **Fake / Impostor Organizers**:
-   * Any student can create an unapproved form, post fake posters on campus groups, and collect student data or spam attendees without authorization from the college student council.
-4. **Organizer Self-Registration Conflicts**:
-   * Club leads and event hosts often book out slots in their own competitive tournaments or workshops for themselves, preventing deserving students from participating.
+   * Any student can post an unapproved form or poster claiming to host an official event. There is zero authorization checking for genuine club leads or council members.
+4. **Organizer Conflict of Interest**:
+   * Club leads and event hosts frequently reserve slots in their own competitive tournaments or workshops for themselves and their friends, denying seats to deserving students.
 5. **Fragmented Teammate Discovery**:
-   * Finding teammates for hackathons or competitive esports (BGMI, Free Fire) results in endless spamming across unofficial Discord servers with no role requirements, capacity limits, or captain screening.
+   * Finding teammates for hackathons or esports tournaments (like BGMI or Free Fire) results in endless spamming across unofficial Discord and WhatsApp groups with no screening, capacity limits, or captain approval.
 
 ---
 
@@ -75,34 +94,47 @@ CampusPulse is engineered specifically for collegiate institutions, clubs, and s
 ## 💡 3. Solution
 ### *How does our product solve the problem?*
 
-CampusPulse provides a unified, full-stack digital pipeline that completely replaces manual forms and physical tickets:
+CampusPulse provides an automated, full-stack digital pipeline that completely replaces manual forms and physical tickets:
 
-```
-[Student Discovery Feed] ➔ [Atomic Real-Time Seat Lock] ➔ [Cryptographic QR Boarding Pass]
-                                                                     │
-                                                                     ▼
-[Gate Entry Scan] ➔ [One-Time State Transition: Attended] ➔ [Anti-Proxy Alert if Re-scanned]
+```mermaid
+flowchart LR
+    A[Student Browses Feed] --> B[Selects Event & Clicks RSVP]
+    B --> C{Seat Available?}
+    C -- Yes --> D[Atomic DB Decrement & Unique Ticket Generated]
+    C -- No --> E[Event Full: Registration Blocked]
+    D --> F[Digital Boarding Pass with SVG QR]
+    F --> G[Gatekeeper Scans QR at Venue]
+    G --> H{Pass Status?}
+    H -- Registered --> I[Marked Attended: Verified Entry ✅]
+    H -- Attended --> J[🚨 PROXY DETECTED: Ticket Already Used!]
 ```
 
 ### 🛡️ The 5-Layer Security & Anti-Fraud Architecture:
-1. **Council Secret Passkey Gate (`COUNCIL_SECRET_PASSKEY`)**:
-   * Nobody can register as an organizer without providing the institutional secret passkey (`SST_COUNCIL_2026`). Impostors are hard-blocked by the backend with HTTP `403 Forbidden`.
-2. **Institutional Identity Regex Enforcement**:
-   * Requires official college domain emails (`@sst.scaler.com`) and strictly formatted batch roll numbers (`24bcs...`, `25bcs...`, `26bcs...`). MongoDB unique indexes prevent duplicate burner accounts.
-3. **Anti-Conflict-of-Interest Barrier**:
-   * The backend strictly validates that event organizers cannot register as participants in their own hosted events.
-4. **One-Time Cryptographic QR Verification**:
-   * Each pass contains a unique Ticket ID (`TKT-...`). When scanned by the gatekeeper camera, status flips from `Registered` to `Attended`. Any subsequent scan immediately triggers a red warning: **"⚠️ PROXY DETECTED — TICKET ALREADY USED!"**.
-5. **Captain-Only Squad Approval Gate**:
-   * Squad creators select custom capacity (2 to 10 members) and required roles. Applicants submit a join request; **only the squad captain has the authority to approve or reject members**.
+
+```mermaid
+graph TD
+    subgraph Security_Shield["CampusPulse 5-Layer Security Shield"]
+        L1["Layer 1: Council Secret Passkey Gate<br/><i>(COUNCIL_SECRET_PASSKEY stops fake organizers)</i>"]
+        L2["Layer 2: Institutional Email & Batch Roll Regex<br/><i>(@sst.scaler.com & 24bcs... format)</i>"]
+        L3["Layer 3: Anti-Conflict-of-Interest Barrier<br/><i>(Organizers cannot register for own events)</i>"]
+        L4["Layer 4: One-Time Cryptographic QR Gatekeeper<br/><i>(One-time scan flips Registered ➔ Attended)</i>"]
+        L5["Layer 5: Captain-Only Squad Approval<br/><i>(Only squad leaders can approve applicants)</i>"]
+    end
+```
+
+1. **Council Secret Passkey Gate (`COUNCIL_SECRET_PASSKEY`)**: Nobody can register as an organizer without providing the institutional secret passkey (`SST_COUNCIL_2026`). Impostors are hard-blocked by the backend with HTTP `403 Forbidden`.
+2. **Institutional Identity Regex Enforcement**: Requires official college domain emails (`@sst.scaler.com`) and strictly formatted batch roll numbers (`24bcs...`, `25bcs...`, `26bcs...`). MongoDB unique indexes prevent duplicate burner accounts.
+3. **Anti-Conflict-of-Interest Barrier**: The backend strictly validates that event organizers cannot register as participants in their own hosted events.
+4. **One-Time Cryptographic QR Verification**: Each pass contains a unique Ticket ID (`TKT-...`). When scanned by the gatekeeper camera, status flips from `Registered` to `Attended`. Any subsequent scan immediately triggers a red warning: **"⚠️ PROXY DETECTED — TICKET ALREADY USED!"**.
+5. **Captain-Only Squad Approval Gate**: Squad creators select custom capacity (2 to 10 members) and required roles. Applicants submit a join request; **only the squad captain has the authority to approve or reject members**.
 
 ---
 
 ## ⚡ 4. Key Features
 ### *What can users actually do?*
 
-### 🎓 Student Portal Capabilities
-* **Dynamic Event Discovery**: Live feed of campus events with category filter pills (`Technical`, `Cultural`, `Sports/Esports`, `Workshop`) and real-time search.
+### 🎓 Student Portal
+* **Dynamic Event Discovery**: Live feed of campus events with category filter pills (`Technical`, `Cultural`, `Sports/Esports`, `Workshop`) and real-time debounced search.
 * **Live Seat Availability Meter**: Real-time visual progress bar showing booked vs available capacity (e.g., `85% Filled`).
 * **1-Click Instant RSVP**: Reserve a seat with atomic database updates that instantly deduct available seats.
 * **Digital Boarding Pass Hub ("My Passes")**:
@@ -113,7 +145,28 @@ CampusPulse provides a unified, full-stack digital pipeline that completely repl
   * Create squad listings with customizable slots (2 to 10 members), target roles (e.g. `Entry Fragger`, `FastAPI Backend`), and batch preferences (`24BCS`, `25BCS`, `Any Batch`).
   * Send join requests to open squads like *Soul Assassins* (BGMI/Free Fire) or *Neural Pirates* (TinyFish AI Hackathon).
 
-### 🏛️ Council & Organizer Portal Capabilities
+```mermaid
+sequenceDiagram
+    autonumber
+    actor Student
+    actor Captain
+    participant System as CampusPulse Hub
+    Student->>System: Browse Tournament & Click "Request to Join"
+    System->>System: Create Pending Join Request with Student Roll & Role
+    Captain->>System: Open Squad Management Dashboard
+    System-->>Captain: Display Applicant Name, Roll Number, & Role
+    alt Captain Approves
+        Captain->>System: Click "Approve"
+        System->>System: Add Member to Squad & Decrement Open Slots
+        System-->>Student: Squad Status Updated to Confirmed ✅
+    else Captain Rejects
+        Captain->>System: Click "Reject"
+        System->>System: Remove Pending Request
+        System-->>Student: Request Declined ❌
+    end
+```
+
+### 🏛️ Council & Organizer Portal
 * **1-Click Event Publishing**: Create events with venue, date, time, seat capacity, and **preset cinematic banners** (Esports BGMI/Free Fire, AI Hackathons, Runway Fashion Shows, Sports Tournaments) or custom URLs.
 * **Live Attendee Roster Table**: View registered students with full names, institutional roll numbers, departments, ticket IDs, and check-in statuses.
 * **Gatekeeper Live QR Scanner (`/verify-ticket`)**:
@@ -136,59 +189,98 @@ CampusPulse provides a unified, full-stack digital pipeline that completely repl
 | **Backend Runtime** | **Node.js** + **Express.js** | Robust RESTful API server strictly organized in the **MVC Pattern**. |
 | **Authentication** | **JWT (JSON Web Tokens)** + **Bcrypt.js** | Secure Bearer token authentication and 10-round salted password hashing. |
 | **Database** | **MongoDB Atlas Cloud Cluster** + **Mongoose** | High-availability cloud NoSQL database with atomic increments and unique indexes. |
-| **Version Control** | **Git** + **GitHub** | Version control with automated root build pipelines and secret safeguarding. |
 | **Deployment** | **Vercel** & **Render** | Cloud hosting with static SPA CDN and serverless/Node web service support. |
 
 ---
 
-## 🏗️ 6. Architecture
+## 🏗️ 6. Architecture & System Flowcharts
 ### *Explain the major components of your application*
 
 The application is structured strictly according to the **Model-View-Controller (MVC)** architectural design pattern:
 
-```
-CampusPulse/
-├── [VIEW LAYER] (Frontend - React 19 + Vite)
-│   ├── Components: Navbar, HeroStats, EventCard, EventDetailModal, CreateEventModal, AttendeesModal, MyPassesModal, AuthModal
-│   ├── State: Global AuthContext (persistent sessions) & Axios API interceptor with JWT tokens
-│   └── Assets: Preset banners (BGMI/Free Fire Esports, Hackathon, Cultural)
-│
-├── [CONTROLLER LAYER] (Backend - Business Logic & Security)
-│   ├── authController.js         ➔ User registration, login, council passkey gate
-│   ├── eventController.js        ➔ Event CRUD, search, category filters, seat counters
-│   ├── registrationController.js ➔ RSVP locking, cancellation, passes, QR gate verifier
-│   └── teamController.js         ➔ Squad creation, join requests, captain approval logic
-│
-├── [MODEL LAYER] (Database - MongoDB Atlas via Mongoose)
-│   ├── User.js                   ➔ Students & Organizers (bcrypt hash, roll regex)
-│   ├── Event.js                  ➔ Title, description, category, capacity, count, banner
-│   ├── Registration.js           ➔ Unique ticketId, event & student refs, status (Registered/Attended)
-│   └── TeamRequest.js            ➔ Squad capacity (2-10), roles, pending requests, members
-│
-└── [INFRASTRUCTURE & MIDDLEWARE]
-    ├── authMiddleware.js         ➔ JWT Bearer guard & Organizer role authorization
-    ├── errorMiddleware.js        ➔ Centralized exception handling
-    └── db.js                     ➔ Cached MongoDB Atlas connection for serverless/cloud
+```mermaid
+graph LR
+    subgraph Client_View["VIEW LAYER (React 19 + Vite)"]
+        UI[Navbar, HeroStats, EventCards]
+        Modals[AuthModal, EventModal, MyPasses, AttendeeModal]
+        Scanner[Live Camera QR Scanner]
+        Axios[Axios Interceptor + JWT]
+    end
+
+    subgraph API_Controller["CONTROLLER LAYER (Express.js)"]
+        AuthCtrl[authController.js]
+        EventCtrl[eventController.js]
+        RegCtrl[registrationController.js]
+        TeamCtrl[teamController.js]
+        AuthGuard[authMiddleware.js]
+    end
+
+    subgraph Model_DB["MODEL & DATA LAYER (Mongoose + Atlas)"]
+        UserM[(User Model)]
+        EventM[(Event Model)]
+        RegM[(Registration Model)]
+        TeamM[(TeamRequest Model)]
+    end
+
+    UI --> Axios
+    Modals --> Axios
+    Scanner --> Axios
+    Axios -->|HTTP + JWT| AuthGuard
+    AuthGuard --> AuthCtrl & EventCtrl & RegCtrl & TeamCtrl
+    AuthCtrl --> UserM
+    EventCtrl --> EventM
+    RegCtrl --> RegM & EventM
+    TeamCtrl --> TeamM & UserM
 ```
 
-### 🔄 End-to-End System Workflow Diagram:
-```
-[User Browser]
-      │
-      ▼  (HTTP Requests with JWT Bearer Token)
-[Express Routing Layer] (/api/auth, /api/events, /api/registrations, /api/teams)
-      │
-      ▼  (Role & Token Guards)
-[authMiddleware.js] ➔ Rejects unauthenticated or unauthorized requests (401/403)
-      │
-      ▼
-[Controller Layer] ➔ Executes business rules (Atomic seat checks, passkey match, captain approvals)
-      │
-      ▼
-[Mongoose ODM] ➔ Validates Schemas & Unique Indexes
-      │
-      ▼
-[MongoDB Atlas Cloud] ➔ Persists atomic transaction state
+### 🗄️ Database Entity Relationship (ER) Model:
+
+```mermaid
+erDiagram
+    USER ||--o{ REGISTRATION : books
+    USER ||--o{ TEAM_REQUEST : creates
+    EVENT ||--o{ REGISTRATION : contains
+    EVENT ||--o{ TEAM_REQUEST : hosts
+    USER }o--o{ TEAM_REQUEST : "joins as member"
+
+    USER {
+        ObjectId _id PK
+        string name
+        string email UK
+        string rollNumber UK
+        string role "student | organizer"
+        string password
+    }
+
+    EVENT {
+        ObjectId _id PK
+        string title
+        string category "Technical | Cultural | Sports | Workshop"
+        number capacity
+        number registeredCount
+        string venue
+        date date
+    }
+
+    REGISTRATION {
+        ObjectId _id PK
+        ObjectId event FK
+        ObjectId student FK
+        string ticketId UK
+        string status "Registered | Attended | Cancelled"
+        date verifiedAt
+    }
+
+    TEAM_REQUEST {
+        ObjectId _id PK
+        ObjectId event FK
+        ObjectId creator FK
+        string teamName
+        number slotsTotal
+        string batchPreference
+        array rolesNeeded
+        string status "Open | Full | Closed"
+    }
 ```
 
 ---
@@ -249,7 +341,6 @@ Open your browser and navigate to: **`http://localhost:5180`**
 ---
 
 ### 🔑 Verified Test & Evaluation Accounts (From `npm run seed`)
-Use these pre-populated SST credentials for evaluation:
 
 | Account Type | Institutional Email | Roll Number | Password | Capabilities |
 |---|---|---|---|---|
@@ -287,14 +378,14 @@ All sensitive keys are abstracted into environment variables. A template is main
 
 ### 🌐 Live Deployment Links
 * **Live Web Application**: [https://campus-plus-rosy.vercel.app/](https://campus-plus-rosy.vercel.app/)
-* **Video Walkthrough Demo**: [Google Drive Video Link](https://drive.google.com/file/d/1uvbG1ZvWf8ZLqWZCOBwyK6-A2pUhZeTA/view?usp=drivesdk)
+* **Video Walkthrough Demo**: [Watch 3-Minute Walkthrough on Google Drive](https://drive.google.com/file/d/1uvbG1ZvWf8ZLqWZCOBwyK6-A2pUhZeTA/view?usp=drivesdk)
 * **GitHub Repository**: [https://github.com/Rudra30507/CampusPlus](https://github.com/Rudra30507/CampusPlus)
 
 ---
 
 ### Cloud Deployment Instructions
 
-#### Option A: 1-Click Full-Stack Deployment on Render (Recommended)
+#### Option A: 1-Click Full-Stack Deployment on Render
 CampusPulse includes a root build script that compiles the Vite frontend and serves it directly from the Express backend on a single unified URL:
 1. In [Render Dashboard](https://dashboard.render.com), create a **New Web Service** and select `Rudra30507/CampusPlus`.
 2. Leave **Root Directory** blank.
