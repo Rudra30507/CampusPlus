@@ -185,9 +185,8 @@ emg/
     │   │   ├── EventCard.jsx     # Card component with live capacity bar & RSVP trigger
     │   │   ├── EventDetailModal.jsx # Detailed event inspection & Squad Hub tab
     │   │   ├── CreateEventModal.jsx # Council event creation form with preset posters
-    │   │   ├── AttendeesModal.jsx# Live student attendee roster & check-in table
+    │   │   ├── AttendeesModal.jsx# Live student attendee roster & QR gate verifier
     │   │   ├── MyPassesModal.jsx # Digital boarding passes with SVG QR codes
-    │   │   ├── VerifyTicketModal.jsx # Live camera QR scanner & gate verifier
     │   │   └── AuthModal.jsx     # Clean modal for Student & Council authentication
     │   ├── App.jsx               # Application root, toast providers, modal coordinators
     │   ├── index.css             # Vanilla CSS design system (Glassmorphism, mobile queries)
@@ -315,7 +314,7 @@ The backend's Express server is already configured to automatically serve the co
    git add .
    git commit -m "feat: complete CampusPulse event portal"
    git branch -M main
-   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+   git remote add origin https://github.com/Rudra30507/CampusPlus.git
    git push -u origin main
    ```
 
@@ -377,8 +376,8 @@ If you prefer hosting the frontend independently on Vercel:
 
 ### 1. Clone & Configure
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd campuspulse
+git clone https://github.com/Rudra30507/CampusPlus.git
+cd CampusPlus
 ```
 
 Create `backend/.env` (using `backend/.env.example` as a template):
