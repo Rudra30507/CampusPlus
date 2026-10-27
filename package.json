@@ -1,0 +1,26 @@
+{
+  "name": "campuspulse-event-management",
+  "version": "1.0.0",
+  "description": "Production-ready College Event & Workshop Management Platform with Squad Finder and QR Gatekeeper",
+  "main": "backend/server.js",
+  "scripts": {
+    "build": "npm --prefix backend install && npm --prefix frontend install && npm --prefix frontend run build",
+    "start": "node backend/server.js",
+    "seed": "npm --prefix backend run seed",
+    "server": "npm --prefix backend run dev",
+    "client": "npm --prefix frontend run dev"
+  },
+  "keywords": [
+    "mern",
+    "event-management",
+    "react",
+    "express",
+    "mongodb",
+    "campus-portal",
+    "college",
+    "qr-code",
+    "squad-finder"
+  ],
+  "author": "",
+  "license": "MIT"
+}
