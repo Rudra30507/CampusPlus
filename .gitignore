@@ -12,6 +12,7 @@ frontend/.env
 # Production Build Artifacts
 frontend/dist/
 dist/
+public/
 
 # Logs
 logs/
