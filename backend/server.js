@@ -47,13 +47,16 @@ app.use('/api/events', eventRoutes);
 app.use('/api/registrations', registrationRoutes);
 app.use('/api/teams', teamRoutes);
 
-// Serve static frontend in production if built
-if (process.env.NODE_ENV === 'production') {
-  const path = require('path');
-  app.use(express.static(path.join(__dirname, '../frontend/dist')));
+// Serve static frontend if built (works seamlessly on Render, Railway, VPS)
+const path = require('path');
+const fs = require('fs');
+const distPath = path.join(__dirname, '../frontend/dist');
+
+if (fs.existsSync(distPath)) {
+  app.use(express.static(distPath));
   app.get('*', (req, res, next) => {
     if (req.path.startsWith('/api')) return next();
-    res.sendFile(path.resolve(__dirname, '../frontend/dist/index.html'));
+    res.sendFile(path.resolve(distPath, 'index.html'));
   });
 }
 
