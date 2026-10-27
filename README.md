@@ -347,23 +347,34 @@ The backend's Express server is already configured to automatically serve the co
 
 ---
 
-### Option 2: Split Deployment (Frontend on Vercel + Backend on Render)
+### Option 2: 1-Click Deployment on Vercel (Full-Stack Monorepo)
 
-If you prefer hosting the frontend independently on Vercel:
+A pre-configured [`vercel.json`](file:///c:/Users/rudi3/OneDrive/Desktop/emg/vercel.json) and [`api/index.js`](file:///c:/Users/rudi3/OneDrive/Desktop/emg/api/index.js) are already included at the root!
 
-1. **Deploy Backend on Render**:
+1. Import your `Rudra30507/CampusPlus` repository on [Vercel](https://vercel.com).
+2. Leave the **Root Directory** as `./` (default root).
+3. Under **Environment Variables**, add:
+   * `NODE_ENV` = `production`
+   * `MONGO_URI` = `mongodb+srv://...`
+   * `JWT_SECRET` = `your_jwt_secret`
+   * `COUNCIL_SECRET` = `SST_COUNCIL_2026`
+4. Click **Deploy**. Vercel will build the frontend and serve the Express API via serverless functions automatically!
+
+---
+
+### Option 3: Split Deployment (Frontend on Vercel + Backend on Render/Railway)
+
+1. **Deploy Backend on Render/Railway**:
    * Set Root Directory to `backend`.
    * Build Command: `npm install`
    * Start Command: `node server.js`
-   * Set environment variables as listed above.
+   * Configure environment variables (`MONGO_URI`, `JWT_SECRET`, `COUNCIL_SECRET`, etc.).
 2. **Deploy Frontend on Vercel**:
    * Set Root Directory to `frontend`.
    * Framework Preset: `Vite`.
-   * In `frontend/src/api/axios.js`, set `baseURL` to your deployed backend URL:
-     ```javascript
-     baseURL: import.meta.env.VITE_API_URL || 'https://your-backend.onrender.com/api'
-     ```
-   * Add environment variable in Vercel: `VITE_API_URL=https://your-backend.onrender.com/api`.
+   * A dedicated [`frontend/vercel.json`](file:///c:/Users/rudi3/OneDrive/Desktop/emg/frontend/vercel.json) handles SPA routing so sub-routes never throw 404 on refresh.
+   * Add environment variable in Vercel:
+     `VITE_API_URL` = `https://your-backend.onrender.com/api`
 
 ---
 
